@@ -1,4 +1,10 @@
+html {
+  display: flex;
+  flex-direction: column;
+}
+
 body {
+  align-self: center;
   text-align: center;
 }
 

@@ -1,0 +1,17 @@
+#title-animation {
+  height: 100;
+  width: 800;
+  background-image: url("../image/screenshot_epi2_2.png");
+  animation: bgmove 6s ease-in-out 0s infinite alternate running;
+  -webkit-animation: bgmove 6s ease-in-out 0s infinite alternate running;
+}
+
+@keyframes bgmove {
+  from    { background-position: 0 -40px }
+  to      { background-position: 0 -80px }
+}
+
+@-webkit-keyframes bgmove {
+  from    { background-position: 0 -40px }
+  to      { background-position: 0 -80px }
+}
