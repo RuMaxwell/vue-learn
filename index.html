@@ -13,19 +13,19 @@
   <body style="background-image: url(https://konachan.net/image/b9231a1ec8c5f374760e21e4462a4f9d/Konachan.com%20-%20250618%20blue_eyes%20breasts%20cleavage%20gray_hair%20imouto_sae_ireba_ii.%20jpeg_artifacts%20kani_nayuta%20kantoku%20kneehighs%20long_hair%20microphone%20ponytail%20skirt%20wink.jpg)">
 
     <div>
-      <img src="" height="100" width="800" />
+      <img src="image/title.gif" height="100" width="800" />
     </div>
 
     <div id="app">
       <div>
-        <h2>チャット</h2>
+        <h2>チャットログ</h2>
         <textarea id="board" class="fog" readonly placeholder="みんな、お話ししましょう~">{{ boardContent }}</textarea>
       </div>
 
       <div style="margin-top: 1.2em">
-        <textarea id="message" v-model="postContent" class="dense-fog" placeholder="カニ先生大好き！"></textarea>
+        <textarea id="message" v-model="postContent" class="dense-fog" autofocus placeholder="カニ先生大好き！"></textarea>
         <br />
-        <input id="post-button" type="submit" v-on:click="post" class="normal-button" title="メッセージ送信" value="ポスト" />
+        <input id="post-button" type="submit" v-on:click="post" class="normal-button" title="メッセージ送信" value="送信" />
       </div>
     </div>
 
@@ -38,8 +38,10 @@
       },
       methods: {
         post: function () {
-          this.boardContent += this.postContent + '\n'
-          this.postContent = ''
+          if (this.postContent.length > 0) {
+            this.boardContent += strip(this.postContent) + '\n'
+            this.postContent = ''
+          }
         },
         clear: function () {
           this.boardContent = ''
